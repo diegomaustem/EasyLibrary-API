@@ -1,39 +1,17 @@
-import { Query, Resolver } from "type-graphql";
+import { Arg, Mutation, Query, Resolver } from "type-graphql";
+import { CreateAuthorInput } from "../dtos/create-author-input";
+import { Author } from "../models/author-model";
 
 @Resolver()
 export class AuthorsResolver {
 
-    @Query(() => [Object])
-    getAllAuthors() {
-        return [
-            {
-                id: 1,
-                name: "J.K. Rowling",
-                books: [
-                    {
-                        id: 1,
-                        title: "Harry Potter and the Sorcerer's Stone",
-                    },
-                    {
-                        id: 2,
-                        title: "Harry Potter and the Chamber of Secrets",
-                    },
-                ],
-            },
-            {
-                id: 2,
-                name: "George R.R. Martin",
-                books: [
-                    {
-                        id: 3,
-                        title: "A Game of Thrones",
-                    },
-                    {
-                        id: 4,
-                        title: "A Clash of Kings",
-                    },
-                ],
-            },
-        ];
-    }               
+    @Query(() => [Author])
+    async getAllAuthors() {
+        return [new Author()];
+    } 
+
+    @Mutation(() => Author)
+    async createAuthor(@Arg("data") data: CreateAuthorInput) {
+        return new Author();
+    }   
 }
