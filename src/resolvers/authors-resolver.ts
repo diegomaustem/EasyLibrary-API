@@ -3,7 +3,7 @@ import { CreateAuthorInput } from "../dtos/create-author-input";
 import { Author } from "../models/author-model";
 import { prisma } from "../db/prisma";
 
-@Resolver()
+@Resolver(() => Author)
 export class AuthorsResolver {
 
     @Query(() => [Author])
@@ -13,7 +13,7 @@ export class AuthorsResolver {
     } 
 
     @Mutation(() => Author)
-    async createAuthor(@Arg("data") data: CreateAuthorInput) {
+    async createAuthor(@Arg("data", () => CreateAuthorInput) data: CreateAuthorInput) {
         const newAuthor = await prisma.author.create({
             data: {
                 name: data.name,
