@@ -4,7 +4,10 @@
 # -----------------------------------------------
 
 type Author {
+  address: String!
   age: Float!
+  email: String!
+  id: Float!
   name: String!
 }
 
