@@ -1,13 +1,16 @@
-import { Field, InputType } from "type-graphql";
+import { Field, InputType, Int } from "type-graphql";
 
 @InputType()
 export class CreateAuthorInput {
-    @Field()
+    @Field(() => String)
     name!: string;
-    @Field()
+
+    @Field(() => String)
     email!: string;
-    @Field()
+
+    @Field(() => String)
     address!: string;
-    @Field()    
+    
+    @Field(() => Int)
     age!: number;
 }   

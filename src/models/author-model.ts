@@ -1,16 +1,20 @@
-import { Field, ObjectType } from "type-graphql";
+import { Field, ID, Int, ObjectType } from "type-graphql";
 import { Author as PrismaAuthor } from "@prisma/client";
 
 @ObjectType()
 export class Author implements PrismaAuthor {
-    @Field()
+    @Field(() => ID)
     id!: number;
-    @Field()
+
+    @Field(() => String)
     name!: string;
-    @Field()    
+
+    @Field(() => Int)    
     age!: number;
-    @Field()
+
+    @Field(() => String)
     email!: string;
-    @Field()
+    
+    @Field(() => String)
     address!: string;
 }               
