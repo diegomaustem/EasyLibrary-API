@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "tsx watch src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -26,10 +26,13 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.4.2",
     "@prisma/client": "^7.4.2",
     "apollo-server": "^3.13.0",
     "class-validator": "^0.15.1",
+    "dotenv": "^17.3.1",
     "graphql": "^16.13.0",
+    "pg": "^8.20.0",
     "reflect-metadata": "^0.2.2",
     "type-graphql": "^2.0.0-rc.3"
   }
